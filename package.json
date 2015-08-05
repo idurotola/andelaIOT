@@ -1,0 +1,23 @@
+{
+  "name": "andelaIOT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andela-idurotola/andelaIOT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-idurotola/andelaIOT/issues"
+  },
+  "homepage": "https://github.com/andela-idurotola/andelaIOT",
+  "dependencies": {
+    "needle": "^0.10.0",
+    "pubnub": "^3.7.13"
+  }
+}
