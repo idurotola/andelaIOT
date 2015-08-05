@@ -18,9 +18,11 @@
     channel: settings.channel,
     callback: function(m) {
       if(m.temp) {
-        console.log('came back with data', m);
         var temp = m.temp
         var angle = temp/100 * 360;
+        var color = '#' + temp.toString().replace('.', '').trim() + '00';
+        console.log(color);
+        document.body.style.background = color;
         document.querySelector('#temperature-data').innerHTML = temp;
         arc1.setAttribute("d", describeArc(200, 200, 130, 0, parseInt(angle)));
       }
