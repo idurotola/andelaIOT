@@ -1,0 +1,244 @@
+/*!
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/fonts/fontawesome-webfont.eot?v=4.2.0');
+  src: url('/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'), url('/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'), url('/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'), url('/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 1.3em;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-left: 10px;
+}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+html {
+  height: 100%;
+}
+body {
+  padding: 1em 2em;
+  margin: 0;
+  font-family: "Lato", "Helvetica Neue", "Roboto Light", "Segoe UI Web Light", "Segoe UI Light", "Segoe UI Web Regular", "Segoe UI", Helvetica, Arial, sans-serif; 
+  color: #fff;
+  background: #00e0fa;
+  background-size: 800px;
+}
+a {
+  color: #ce1126;
+}
+header {
+  
+}
+.logo {
+  padding-bottom: 2.0em;
+  padding-top: 3.0em;
+  border-bottom: solid 1px #fff;
+  margin-bottom: 3.0em;
+}
+.logo img {
+  height: 64px;
+  width: auto;
+}
+h1, h2, h3 {
+  margin: 0;
+  color: #555;
+  text-rendering: optimizeLegibility;
+}
+h1 {
+  font-size: 2.25em;
+  margin: 0;
+  font-weight: normal;
+}
+h2 {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+p, footer {
+  margin: 1em 0 .5em;
+}
+footer {
+  clear: both;
+  text-align: right;
+  margin-top: 4em;
+}
+footer .credit {
+  font-size: .8em;
+}
+
+/* Layout */
+
+header {
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 50px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: #bbe4fd;
+}
+header img {
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  margin-right: 10px;
+  margin-left: 20px;
+  position: relative;
+  top: 5px;
+}
+
+.container {
+  text-align: center;
+}
+
+.temp-hum-display {
+  margin-bottom: 2em;
+}
+.temp-container, .hum-container {
+  font-size: 1.4em;
+}
+.temp-container::before {
+  content: 'Current room temperature (C): ';
+}
+.hum-container::before {
+  content: 'Current room humidity (%): ';
+}
+.temp, .hum {      
+  display: inline-block;
+}
+.wet::after {
+  content: "\f043";
+  padding-left: 10px;
+  color: #bbe4fd;
+}
+
+@media (min-width: 768px) {
+  .pref-container {
+    width: 480px;
+  }
+
+  .temp-container::before, .hum-container::before {
+    content: '';
+  }
+  .temp, .hum {      
+    font-size: 160px;
+    opacity: 0.2;
+  }
+  .hum {
+    position: relative;
+    left: 10px;
+  }
+  .temp span, .hum span {
+    font-size: 0.5em;
+    vertical-align: top;
+    position: relative;
+    top: 26px;
+  }
+}
+@media (min-width: 1024px) {
+  .pref-container {
+    width: 600px;
+  }
+  .temp, .hum {      
+    font-size: 160px;
+  }
+}
+
+/* UI component styles */
+
+.pubnub {
+    width: 80px;
+    height: 25px;
+    opacity: 0.9;
+    background: url(../media/pubnub.png) 0 0 no-repeat;
+    background-size: 100%;
+    position: relative;
+    left: 150px;
+}
+.temp::before {
+  content: attr(data-temperature);
+}
+.hum::before {
+  content: attr(data-humidity);
+}
+.preference {
+  margin-bottom: 2em;
+  border: 1px solid rgba(192, 192, 192, 0.15);
+  border-radius: 8px;
+  min-height: 90px;
+  font-size: 1rem;
+}
+.preference h2 {
+  font-size: .9em;
+  background-color: #aaa;
+  color: #fff;
+  padding: 7px 10px;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  box-shadow: inset -1px 2px 3px rgba(0,0,0,.25);
+  text-transform: uppercase;
+  margin: 0;
+}
+.caption {
+  font-size: 1.3em;
+  margin: 32px 20px;
+}
+.caption, .toggle-button {
+  display: inline-block;
+}
+.preference > div {
+  position: relative;
+}
+.preference > div:not(:last-child) {
+  border-bottom: 1px rgba(192, 192, 192, 0.15) solid;
+}
+.preference > div > div {
+  width: 100%;
+}
+
+.text {
+  font-size: 0.9rem;
+  line-height: 1.2em;
+  width: calc(100% - 160px);
+}
+.subtext {   
+  color: #888;  
+}
+.try-mobile {
+   min-height: 100px;
+   background-color: rgba(240, 240, 240, 0.5);
+}
+.qrcode {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+}
+
+@media (max-width: 420px) {
+  header {
+    margin-bottom: 2em;
+  }
+  h1 {
+    font-size: 2.4em;
+  }
+}
+
+
+
+
+
+
+
+
