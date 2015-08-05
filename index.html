@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/app.css">
 </head>
 
-<body>
+<body id="tempBody">
   <header>
   </header>
   <section class="container">
@@ -17,7 +17,7 @@
       <img src="img/logo.png">
     </div>
     <h1>Temperature Meter</h1>
-    <svg id="svg" width="400" height="400">      
+    <svg id="svg" width="400" height="400">
         <circle cx="200" cy="200" r="150" stroke="#fff" stroke-width=10 fill="none" />
         <circle cx="200" cy="200" r="135" stroke="none" stroke-width="1" fill="none" />
         <text  style="font-size: 4.5em;" x="115" y="225" fill="#49535A" id="temperature-data">
@@ -34,6 +34,6 @@
 
   <script src="http://cdn.pubnub.com/pubnub-3.7.11.min.js"></script>
   <script src="app.js"></script>
-  
+
 </body>
 </html>
