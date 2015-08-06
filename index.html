@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='http://fonts.googleapis.com/css?family=Lato:400,300italic,400italic,700,700italic,900,300,100italic,100,900italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/app.css">
+  <script src="jquery.js"></script>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
       <img src="img/logo.png">
     </div>
     <h1>Temperature Meter</h1>
-    <svg id="svg" width="400" height="400">      
+    <svg id="svg" width="400" height="400">
         <circle cx="200" cy="200" r="150" stroke="#fff" stroke-width=10 fill="none" />
         <circle cx="200" cy="200" r="135" stroke="none" stroke-width="1" fill="none" />
         <text  style="font-size: 4.5em;" x="115" y="225" fill="#49535A" id="temperature-data">
@@ -26,6 +27,13 @@
         <path id="arc1" fill="none" stroke="#ff0" stroke-width="10" />
     </svg>
     <h3>Showing current temperature in degree centigrade</h3>
+
+    <h3>Media plays when temperature is higher than 28</h3>
+    <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=https://soundcloud.com/the-hero-inc/nelly-hot-in-herre-mixed-with" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
+      <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+      <script type="text/javascript">
+
+      </script>
   </section>
 
   <footer>
@@ -33,7 +41,9 @@
   </footer>
 
   <script src="http://cdn.pubnub.com/pubnub-3.7.11.min.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
   <script src="app.js"></script>
-  
+
+
 </body>
 </html>

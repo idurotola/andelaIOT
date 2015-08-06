@@ -1,5 +1,9 @@
 (function(){
 
+  var widgetIframe = document.getElementById('sc-widget');
+  var widget = SC.Widget(widgetIframe);
+  var isPlaying = false;
+
   var settings = {
     channel: 'lightBlinker',
     publish_key: 'pub-c-d9cd80ec-703e-49e2-8563-7102c8c75de4',
@@ -18,24 +22,35 @@
     channel: settings.channel,
     callback: function(m) {
       if(m.temp) {
-        console.log('came back with data', m);
+        // console.log('came back with data', m);
         var temp = m.temp
         var angle = temp/100 * 360;
         document.querySelector('#temperature-data').innerHTML = temp;
         arc1.setAttribute("d", describeArc(200, 200, 130, 0, parseInt(angle)));
+
+
+        if(temp >= 28 && !isPlaying) {
+          console.log("hot in here!!");
+          widget.play();
+          isPlaying = true;
+        }
+        else if(temp < 28) {
+          widget.pause();
+          isPlaying = false;
+        }
       }
     }
   })
 
   function publishUpdate(data) {
     pubnub.publish({
-      channel: settings.channel, 
+      channel: settings.channel,
       message: data
     });
   }
 
 
-  var svg = document.getElementById("svg");   
+  var svg = document.getElementById("svg");
   function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
     var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
 
@@ -52,11 +67,27 @@
 
     var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
     var d = [
-    "M", start.x, start.y, 
+    "M", start.x, start.y,
     "A", radius, radius, 0, arcSweep, 0, end.x, end.y
     ].join(" ");
-    return d;       
+    return d;
   }
 
   arc1.setAttribute("d", describeArc(200, 200, 130, 0, 0));
+
+  widget.bind(SC.Widget.Events.READY, function() {
+    widget.bind(SC.Widget.Events.PLAY, function() {
+      // get information about currently playing sound
+      // widget.getCurrentSound(function(currentSound) {
+      //   console.log('sound ' + currentSound.get('') + 'began to play');
+      // });
+    });
+    // get current level of volume
+    // widget.getVolume(function(volume) {
+    //   console.log('current volume value is ' + volume);
+    // });
+    // set new volume level
+    widget.setVolume(50);
+    // get the value of the current position
+  });
 })();
